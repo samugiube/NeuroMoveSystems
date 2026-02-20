@@ -21,7 +21,7 @@ let pistaImg; let pistaOffsetY = 0; let pistaSpeed = 6
 
 let bandImg; let bandWidth = 360; let bandHeight = 90
 const bandierine = []; let maxBand = 5
-let punteggio
+let punteggio; let coppaImg
 
 let startImg; let pausaImg; let gameOverImg; let tutorialImg; let sceltaImg
 
@@ -32,6 +32,7 @@ function preload() {
     playerImgSx = loadImage("./img/sci_sx.png")
     playerWidth = 120; playerHeight = playerImgDx.height * (playerWidth / playerImgDx.width)
     cuoreImg = loadImage("./img/cuore.png")
+    coppaImg = loadImage("./img/coppa.png")
 
     pistaImg = loadImage("./img/pista.png")
     bandImg = loadImage("./img/bandierina.png")
@@ -90,6 +91,8 @@ function draw() {
         let forzaX = microBit.getAccelerometer().x
         if (forzaX > forzaSx) player.muoviSx()
         else if (forzaX < forzaDx) player.muoviDx(startImg)
+
+        if (punteggio >= 100) image(coppaImg, width - coppaImg.width - 40, 100)
 
     } else if (schema == SCHEMI.gameover) {
         background(gameOverImg)
