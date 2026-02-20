@@ -51,7 +51,7 @@ function preload() {
 function setup() {
     createCanvas(startImg.width, startImg.height)
     frameRate(50)
-    background(tutorialImg)
+    background(startImg)
     schema = SCHEMI.accoppia
     
     xInizio = startImg.width/2 - playerImgDx.width/2
@@ -65,9 +65,7 @@ function setup() {
 }
 
 function draw() {
-    if (schema == SCHEMI.accoppia) {
-    
-    } else if (schema == SCHEMI.tutorial) {
+    if (schema == SCHEMI.tutorial) {
         background(tutorialImg)
 
         if (frameCount >= tutPrimoFrame + 250) {
